@@ -3,7 +3,7 @@ const LotCard = ({ lot, isFavorite, onToggleFavorite }) => (
     <img src={lot.imageUrl} alt={lot.title} />
     <h3>{lot.title}</h3>
     <p>Категорія: {lot.category}</p>
-    <p>Ціна: ${lot.startPrice}</p>
+    <p className="card-p-bold">Ціна: {lot.startPrice} грн</p>
     <button 
       onClick={() => onToggleFavorite(lot.id)}
       className={isFavorite ? "btn-active" : "btn-default"}

@@ -7,13 +7,11 @@ import { lotsData } from './models/AuctionLot';
 import './App.css';
 
 function App() {
-  // Читаем из localStorage при загрузке
   const [favorites, setFavorites] = useState(() => {
     const saved = localStorage.getItem('favorites');
     return saved ? JSON.parse(saved) : [];
   });
 
-  // Сохраняем в localStorage при каждом изменении избранного
   useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }, [favorites]);
