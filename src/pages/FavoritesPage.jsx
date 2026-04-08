@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import FavoriteLotCard from '../components/FavoriteLotCard';
 
+// 7.2 - Створити сторінку FavoritesPage (додані в улюблене лоти); 
 const FavoritesPage = ({ lots, favorites }) => {
   const favoriteLots = lots.filter(lot => favorites.includes(lot.id));
 

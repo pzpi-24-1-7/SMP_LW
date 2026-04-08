@@ -7,6 +7,7 @@ import { lotsData } from './models/AuctionLot';
 import './App.css';
 
 function App() {
+  // 7.2 - Ідентифікатори улюблених лотів мають зберігатися у localStorage браузера.
   const [favorites, setFavorites] = useState(() => {
     const saved = localStorage.getItem('favorites');
     return saved ? JSON.parse(saved) : [];
@@ -15,6 +16,7 @@ function App() {
   useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }, [favorites]);
+
 
   const toggleFavorite = (id) => {
     setFavorites(prev => 

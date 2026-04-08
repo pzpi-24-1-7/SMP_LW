@@ -1,3 +1,4 @@
+// 2.1 Створити компонент LotCard, який відображає об’єкт класу AuctionLot на сторінці
 const LotCard = ({ lot, isFavorite, onToggleFavorite }) => (
   <div className="card">
     <img src={lot.imageUrl} alt={lot.title} />
