@@ -17,7 +17,6 @@ function App() {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }, [favorites]);
 
-
   const toggleFavorite = (id) => {
     setFavorites(prev => 
       prev.includes(id) 
@@ -36,7 +35,13 @@ function App() {
           />
           <Route 
             path="/favorites" 
-            element={<FavoritesPage lots={lotsData} favorites={favorites} />} 
+            element={
+              <FavoritesPage 
+                lots={lotsData} 
+                favorites={favorites} 
+                onToggleFavorite={toggleFavorite}
+              />
+            } 
           />
         </Routes>
       </Layout>
