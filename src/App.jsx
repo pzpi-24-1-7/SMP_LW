@@ -7,6 +7,7 @@ import { lotsData } from './models/AuctionLot';
 import './App.css';
 
 function App() {
+  // 7.2 - Ідентифікатори улюблених лотів мають зберігатися у localStorage браузера.
   const [favorites, setFavorites] = useState(() => {
     const saved = localStorage.getItem('favorites');
     return saved ? JSON.parse(saved) : [];
@@ -34,7 +35,13 @@ function App() {
           />
           <Route 
             path="/favorites" 
-            element={<FavoritesPage lots={lotsData} favorites={favorites} />} 
+            element={
+              <FavoritesPage 
+                lots={lotsData} 
+                favorites={favorites} 
+                onToggleFavorite={toggleFavorite}
+              />
+            } 
           />
         </Routes>
       </Layout>

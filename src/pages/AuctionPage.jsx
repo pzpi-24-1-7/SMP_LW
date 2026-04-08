@@ -1,5 +1,6 @@
 import LotCard from '../components/LotCard';
 
+// 7.1 - Створити сторінку AuctionPage (список усіх лотів)
 const AuctionPage = ({ lots, favorites, onToggleFavorite }) => {
   return (
     <div>

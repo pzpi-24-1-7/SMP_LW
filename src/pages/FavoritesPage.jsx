@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import FavoriteLotCard from '../components/FavoriteLotCard';
 
-const FavoritesPage = ({ lots, favorites }) => {
+// 7.2 - Створити сторінку FavoritesPage (додані в улюблене лоти); 
+const FavoritesPage = ({ lots, favorites, onToggleFavorite }) => {
   const favoriteLots = lots.filter(lot => favorites.includes(lot.id));
 
   return (
@@ -15,7 +16,11 @@ const FavoritesPage = ({ lots, favorites }) => {
       ) : (
         <div className="grid">
           {favoriteLots.map(lot => (
-            <FavoriteLotCard key={lot.id} lot={lot} />
+            <FavoriteLotCard 
+              key={lot.id} 
+              lot={lot} 
+              onToggleFavorite={onToggleFavorite}
+            />
           ))}
         </div>
       )}
