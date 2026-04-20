@@ -13,11 +13,15 @@ const getAllLots = async (req, res) => {
 const getLotById = async (req, res) => {
     try {
         const { id } = req.params;
+
+        await dbPool.query('UPDATE lots SET views = views + 1 WHERE id = ?', [id]);
+        
         const [rows] = await dbPool.query('SELECT * FROM lots WHERE id = ?', [id]);
         
         if (rows.length === 0) {
             return res.status(404).json({ error: 'Лот не знайдено' });
         }
+        
         res.json(rows[0]);
     } catch (error) {
         console.error(error);
@@ -49,24 +53,6 @@ const createLot = async (req, res) => {
     }
 };
 
-const updateLot = async (req, res) => {
-    try {
-        const { id } = req.params;
-        const { title, category, startPrice, imageUrl } = req.body;
-
-        const sql = 'UPDATE lots SET title = ?, category = ?, startPrice = ?, imageUrl = ? WHERE id = ?';
-        const [result] = await dbPool.query(sql, [title, category, startPrice, imageUrl, id]);
-
-        if (result.affectedRows === 0) {
-            return res.status(404).json({ error: 'Лот не знайдено' });
-        }
-
-        res.json({ message: 'Лот успішно оновлено' });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Помилка оновлення лоту' });
-    }
-};
 
 const deleteLot = async (req, res) => {
     try {
@@ -88,6 +74,5 @@ module.exports = {
     getAllLots,
     getLotById,
     createLot,
-    updateLot,
     deleteLot
 };
