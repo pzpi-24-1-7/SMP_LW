@@ -16,6 +16,7 @@ const AuctionPage = ({ lots, favorites, onToggleFavorite, onAddLot, onDeleteLot 
             isFavorite={favorites.includes(lot.id)} 
             onToggleFavorite={onToggleFavorite}
             onDelete={onDeleteLot}
+            views={lot.views || 0}
           />
         ))}
       </div>

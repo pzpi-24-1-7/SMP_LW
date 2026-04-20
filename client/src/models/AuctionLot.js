@@ -7,13 +7,17 @@ export class AuctionLot {
     title = "Lot",
     category = "Category",
     startPrice = 100.00,
-    imageUrl = "https://d2zp5xs5cp8zlg.cloudfront.net/image-87061-800.jpg" 
+    imageUrl = "https://d2zp5xs5cp8zlg.cloudfront.net/image-87061-800.jpg",
+    createdAt,
+    views
   }) {
     this.id = id;
     this.title = title;
     this.category = category;
     this.startPrice = Number(startPrice);
     this.imageUrl = imageUrl;
+    this.views = views;
+    this.createdAt = createdAt;
   }
 
   getCopy(newId) {

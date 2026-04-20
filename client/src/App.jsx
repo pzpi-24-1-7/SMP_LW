@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import AuctionPage from './pages/AuctionPage';
 import FavoritesPage from './pages/FavoritesPage';
+import LotPage from './pages/LotPage';
 import { AuctionLot } from './models/AuctionLot';
 import './App.css';
 
@@ -94,6 +95,7 @@ function App() {
               />
             } 
           />
+          <Route path="/lot/:id" element={<LotPage/>} />
           <Route 
             path="/favorites" 
             element={
