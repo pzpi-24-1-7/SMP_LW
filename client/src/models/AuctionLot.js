@@ -1,7 +1,5 @@
-// 1.1: Створити клас AuctionLot, що описує антикварний предмет
 export class AuctionLot {
   
-  // 3.1 У класі AuctionLot описати конструктор
   constructor({
     id,
     title = "Lot",

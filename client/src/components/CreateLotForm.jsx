@@ -25,10 +25,10 @@ const CreateLotForm = ({ onAdd }) => {
     <form className="create-lot-form" onSubmit={handleSubmit}>
       <h3>Додати новий лот</h3>
       <div className="form-inputs">
-        <input name="title" placeholder="Назва (напр. Ваза)" value={formData.title} onChange={handleChange} required />
-        <input name="category" placeholder="Категорія" value={formData.category} onChange={handleChange} required />
-        <input name="startPrice" type="number" placeholder="Стартова ціна" value={formData.startPrice} onChange={handleChange} required />
-        <input name="imageUrl" placeholder="URL картинки (необов'язково)" value={formData.imageUrl} onChange={handleChange} />
+        <input name="title" placeholder="Назва (напр. Ваза)" value={formData.title} autoComplete='off' onChange={handleChange} required />
+        <input name="category" placeholder="Категорія" value={formData.category} autoComplete='off' onChange={handleChange} required />
+        <input name="startPrice" min="1" type="number" placeholder="Стартова ціна" autoComplete='off' value={formData.startPrice} onChange={handleChange} required />
+        <input name="imageUrl" placeholder="URL картинки (необов'язково)" value={formData.imageUrl} autoComplete='off' onChange={handleChange} />
         <button type="submit" className="btn-submit">Створити</button>
       </div>
     </form>

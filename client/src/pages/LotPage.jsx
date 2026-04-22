@@ -32,21 +32,32 @@ const LotDetailsPage = () => {
         &larr; Повернутися до всіх лотів
       </Link>
       
-      <div style={{ display: 'flex', gap: '30px', flexWrap: 'wrap', backgroundColor: '#fff', padding: '20px', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '30px', backgroundColor: '#fff', padding: '20px', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
         <img 
           src={lot.imageUrl || "https://images.ctfassets.net/sfnkq8lmu5d7/2fYz9PMIiZT8emz4lZPwUE/8f14aa0c3b0957899c52bc67f2e067f4/2025-06-26_cats_baby_face_hero.jpg?w=1200&h=960&fl=progressive&q=70&fm=jpg"} 
           alt={lot.title} 
           style={{ maxWidth: '400px', width: '100%', borderRadius: '8px', objectFit: 'cover' }}
         />
-        <div style={{ flex: '1', minWidth: '300px' }}>
-          <h1 style={{ marginTop: 0 }}>{lot.title}</h1>
-          <p style={{ color: '#666', fontSize: '18px' }}>Категорія: <strong>{lot.category}</strong></p>
-          <p style={{ fontSize: '28px', fontWeight: 'bold', color: '#2c3e50', margin: '20px 0' }}>{lot.startPrice} грн</p>
+
+        <div style={{ width: '100%', textAlign: 'center' }}>
+          <h1 style={{ color: '#2C2429', fontSize: '32px', marginBottom: '10px' }}>{lot.title}</h1>
+          <p style={{ color: '#555', fontSize: '18px' }}>Категорія: <strong>{lot.category}</strong></p>
+          <p style={{ fontSize: '36px', fontWeight: 'bold', color: '#2C2429', margin: '20px 0' }}>{lot.startPrice} грн</p>
           
-          {/* СТРОКА З ЛІЧИЛЬНИКОМ ПЕРЕГЛЯДІВ */}
-          <div style={{ padding: '10px 15px', backgroundColor: '#e9ecef', borderRadius: '8px', display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
-            <span style={{ fontSize: '20px' }}>👁️</span>
-            <span style={{ fontSize: '18px', fontWeight: '500' }}>Переглядів: {lot.views || 0}</span>
+          <div style={{ 
+            padding: '8px 16px', 
+            backgroundColor: '#F6F8F9', 
+            borderRadius: '20px', 
+            display: 'inline-flex', 
+            alignItems: 'center', 
+            gap: '8px',
+            border: '1px solid #ddd'
+          }}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            <span style={{ fontSize: '16px', color: '#666', fontWeight: '500' }}>Переглядів: {lot.views || 0}</span>
           </div>
         </div>
       </div>

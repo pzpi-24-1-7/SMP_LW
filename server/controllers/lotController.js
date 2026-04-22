@@ -29,15 +29,20 @@ const getLotById = async (req, res) => {
     }
 };
 
+const defaultImageUrl = 'https://placehold.net/main.svg';
 const createLot = async (req, res) => {
     try {
         let { 
-            title = "Lot", 
-            category = "Category", 
-            startPrice = 100.00, 
+            title, 
+            category, 
+            startPrice, 
             imageUrl = null 
         } = req.body;
 
+        if (!title.trim() || !category.trim() || !startPrice || Number(startPrice) <= 0)
+            return res.status(400).json({ error: 'Всі обов’язкові поля мають бути заповнені' });
+
+        imageUrl = (imageUrl && imageUrl.trim()) ? imageUrl.trim() : defaultImageUrl;
         const sql = 'INSERT INTO lots (title, category, startPrice, imageUrl) VALUES (?, ?, ?, ?)';
         imageUrl = imageUrl.trim() || null;
         const [result] = await dbPool.query(sql, [title, category, startPrice, imageUrl]);
