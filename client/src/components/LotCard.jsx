@@ -5,7 +5,7 @@ const LotCard = ({ lot, isFavorite, onToggleFavorite, onDelete }) => (
     
     <Link to={`/lot/${lot.id}`} style={{ display: 'block', overflow: 'hidden' }}>
       <img 
-        src={lot.imageUrl || "https://images.ctfassets.net/sfnkq8lmu5d7/2fYz9PMIiZT8emz4lZPwUE/8f14aa0c3b0957899c52bc67f2e067f4/2025-06-26_cats_baby_face_hero.jpg?w=1200&h=960&fl=progressive&q=70&fm=jpg"} 
+        src={lot.imageUrl || 'https://placehold.net/main.svg'} 
         alt={lot.title} 
         style={{ transition: 'transform 0.3s ease', display: 'block', width: '100%' }} 
         onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'} 
@@ -58,7 +58,6 @@ const LotCard = ({ lot, isFavorite, onToggleFavorite, onDelete }) => (
       </button>
     </div>
     
-    {/* 3. Додаємо окрему кнопку "Детальніше" */}
     <Link to={`/lot/${lot.id}`} style={{ display: 'block', textAlign: 'center', marginTop: '10px', textDecoration: 'none', color: '#007bff' }}>
       Дивитись деталі &rarr;
     </Link>

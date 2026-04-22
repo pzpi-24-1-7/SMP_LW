@@ -6,7 +6,7 @@ CREATE TABLE lots (
     title VARCHAR(255) NOT NULL DEFAULT 'Lot',
     category VARCHAR(255) NOT NULL DEFAULT 'Category',
     startPrice DECIMAL(10, 2) NOT NULL DEFAULT 100.00,
-    imageUrl VARCHAR(1000) DEFAULT 'https://d2zp5xs5cp8zlg.cloudfront.net/image-87061-800.jpg',
+    imageUrl VARCHAR(1000) DEFAULT 'https://placehold.net/main.svg',
     views INT DEFAULT 0,
     creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
