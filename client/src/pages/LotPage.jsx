@@ -67,16 +67,16 @@ const LotDetailsPage = () => {
             <span style={{ fontSize: '16px', color: '#666', fontWeight: '500' }}>Переглядів: {lot.total_hits || 0}</span>
           </div>
           <div style={{ marginTop: '25px', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '10px' }}>
-        <span style={badgeStyle}>
-            <strong>{lot.total_hits}</strong> Всього переглядів
-          </span>
-          <span style={badgeStyle}>
-            <strong>{lot.unique_hosts}</strong> Унікальних
-          </span>
-          <span style={{...badgeStyle, backgroundColor: '#E7F3FF', color: '#007bff', borderColor: '#BADCFF'}}>
-            <strong>{lot.user_hits}</strong> з поточного ip
-          </span>
-        </div>
+<span style={badgeStyle}>
+    <strong>{lot.total_hits}</strong> Всього переглядів
+  </span>
+  <span style={badgeStyle}>
+    <strong>{lot.unique_hosts}</strong> Унікальних
+  </span>
+  <span style={{...badgeStyle, backgroundColor: '#E7F3FF', color: '#007bff', borderColor: '#BADCFF'}}>
+    <strong>{lot.user_hits}</strong> з поточного ip
+  </span>
+</div>
         </div>
       </div>
     </div>

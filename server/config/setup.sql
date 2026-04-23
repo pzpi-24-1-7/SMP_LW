@@ -17,7 +17,7 @@ CREATE TABLE lot_ip (
     hits INT DEFAULT 1,
     last_hit TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (ip, lot_id) ,
-    FOREIGN KEY (lot_id) REFERENCES lots(id) 
+    FOREIGN KEY (lot_id) REFERENCES lots(id) ON DELETE CASCADE 
 );
 
 INSERT INTO lots (title, category, startPrice, imageUrl) VALUES 
