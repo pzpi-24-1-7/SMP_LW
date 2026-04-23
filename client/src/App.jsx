@@ -21,7 +21,7 @@ function App() {
   }, [favorites]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/lots')
+    fetch('http://localhost:3000/api/lots',)
       .then(res => res.json())
       .then(data => {
         const lotInstances = data.map(item => new AuctionLot(item));

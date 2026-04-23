@@ -25,7 +25,14 @@ const LotDetailsPage = () => {
 
   if (loading) return <div style={{ textAlign: 'center', marginTop: '50px' }}>Завантаження...</div>;
   if (error) return <div style={{ textAlign: 'center', marginTop: '50px', color: 'red' }}>{error}</div>;
-
+  const badgeStyle = {
+    padding: '6px 12px',
+    backgroundColor: '#F6F8F9',
+    borderRadius: '8px',
+    fontSize: '13px',
+    color: '#555',
+    border: '1px solid #E1E4E8'
+  };
   return (
     <div className="page-container" style={{ maxWidth: '800px', margin: '0 auto', padding: '20px' }}>
       <Link to="/" style={{ display: 'inline-block', marginBottom: '20px', textDecoration: 'none', color: '#007bff', fontWeight: 'bold' }}>
@@ -57,8 +64,19 @@ const LotDetailsPage = () => {
               <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
               <circle cx="12" cy="12" r="3"></circle>
             </svg>
-            <span style={{ fontSize: '16px', color: '#666', fontWeight: '500' }}>Переглядів: {lot.views || 0}</span>
+            <span style={{ fontSize: '16px', color: '#666', fontWeight: '500' }}>Переглядів: {lot.total_hits || 0}</span>
           </div>
+          <div style={{ marginTop: '25px', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '10px' }}>
+        <span style={badgeStyle}>
+            <strong>{lot.total_hits}</strong> Всього переглядів
+          </span>
+          <span style={badgeStyle}>
+            <strong>{lot.unique_hosts}</strong> Унікальних
+          </span>
+          <span style={{...badgeStyle, backgroundColor: '#E7F3FF', color: '#007bff', borderColor: '#BADCFF'}}>
+            <strong>{lot.user_hits}</strong> з поточного ip
+          </span>
+        </div>
         </div>
       </div>
     </div>

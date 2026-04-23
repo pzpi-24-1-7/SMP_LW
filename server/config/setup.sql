@@ -7,10 +7,18 @@ CREATE TABLE lots (
     category VARCHAR(255) NOT NULL DEFAULT 'Category',
     startPrice DECIMAL(10, 2) NOT NULL DEFAULT 100.00,
     imageUrl VARCHAR(1000) DEFAULT 'https://placehold.net/main.svg',
-    views INT DEFAULT 0,
+    -- remove views !delete column
     creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE lot_ip (
+    ip VARCHAR(64),
+    lot_id INT,
+    hits INT DEFAULT 1,
+    last_hit TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (ip, lot_id) ,
+    FOREIGN KEY (lot_id) REFERENCES lots(id) 
+);
 
 INSERT INTO lots (title, category, startPrice, imageUrl) VALUES 
 ('Старовинний годинник', 'Антикваріат', 500.00, 'https://ireland.apollo.olxcdn.com/v1/files/5gn200ezsyq02-UA/image'),
