@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const lotRoutes = require('./routes/lotRoutes');
+const { connectDatabase, disconnectDatabase } = require('./config/db');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -136,4 +137,27 @@ app.use(cors());
 app.use(express.json());
 app.use('/api/lots', lotRoutes);
 
-app.listen(PORT, () => console.log(`Running on http://localhost:${PORT}`));
+async function startServer() {
+    await connectDatabase();
+
+    const server = app.listen(PORT, () => {
+        console.log(`Running on http://localhost:${PORT}`);
+    });
+
+    const shutdown = async (signal) => {
+        console.log(`${signal} received, shutting down...`);
+        server.close(async () => {
+            wss.close();
+            await disconnectDatabase();
+            process.exit(0);
+        });
+    };
+
+    process.on('SIGINT', () => shutdown('SIGINT'));
+    process.on('SIGTERM', () => shutdown('SIGTERM'));
+}
+
+startServer().catch((err) => {
+    console.error('Failed to start server:', err);
+    process.exit(1);
+});
