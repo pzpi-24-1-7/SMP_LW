@@ -6,6 +6,7 @@ import FavoritesPage from './pages/FavoritesPage';
 import LotPage from './pages/LotPage';
 import { AuctionLot } from './models/AuctionLot';
 import './App.css';
+import ChatPage from './pages/ChatPage';
 
 function App() {
   const [lots, setLots] = useState([]);
@@ -103,6 +104,13 @@ function App() {
                 lots={lots} 
                 favorites={favorites} 
                 onToggleFavorite={toggleFavorite}
+              />
+            } 
+          />
+          <Route 
+            path="/chat" 
+            element={
+              <ChatPage  
               />
             } 
           />

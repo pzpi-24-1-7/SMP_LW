@@ -9,6 +9,7 @@ const Header = () => (
     <nav>
       <Link to="/">Усі аукціони</Link>
       <Link to="/favorites">Улюблене</Link>
+      <Link to = "/chat"> WS-chat</Link>
     </nav>
   </header>
 );
